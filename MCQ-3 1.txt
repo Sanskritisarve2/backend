@@ -1,0 +1,407 @@
+What is a key advantage of microservices architecture compared to monolithic 
+architecture?
+
+a) Tightly coupled components
+b) Independent deployability
+c) Single codebase
+d) Centralized database
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In microservices, what is the main function of an API Gateway?
+a) Run database queries
+b) Manage client requests and route to services
+c) Store service data
+d) Deploy microservices
+
+
+
+
+
+Which pattern helps manage distributed transactions across multiple microservices?
+a) Singleton
+b) Saga
+c) Factory
+d) Adapter
+
+
+
+Which communication method is commonly asynchronous in microservices?
+a) REST API
+b) Message Queues
+c) HTTP GET request
+d) Direct function calls
+
+
+
+What is service discovery in microservices?
+a) Mechanism to locate and communicate with service instances dynamically
+b) A design pattern for database access
+c) Manual IP configuration
+d) UI testing technique
+
+
+
+Which of the following provides fault tolerance in microservices?
+a) Circuit Breaker
+b) Singleton pattern
+c) Factory method
+d) Observer pattern
+
+
+
+
+
+In microservices, each service typically has:
+a) A shared database
+b) Its own database
+c) No database
+d) Centralized storage
+
+
+
+
+Which tool is commonly used for containerizing microservices?
+a) Maven
+b) Docker
+c) Jenkins
+d) Gradle
+
+
+
+
+What does eventual consistency mean in microservices?
+a) Data changes immediately
+b) Data becomes consistent over time
+c) All services always consistent
+d) No consistency needed
+
+
+
+
+Which Spring Cloud component aids in distributed tracing?
+a) Ribbon
+b) Sleuth
+c) Feign
+d) Eureka
+
+
+
+
+
+Why is centralized logging important in microservices?
+a) Debugs single service
+b) Aggregates logs for better fault analysis
+c) Reduces logging overhead
+d) Eliminates logs
+
+
+
+Which protocol is mostly used for synchronous microservice communication?
+a) FTP
+b) REST over HTTP
+c) SMTP
+d) SSH
+
+
+
+What does a service mesh provide in microservices?
+a) Service-to-service communication management
+b) Database transactions
+c) UI design
+d) API visualization
+
+
+
+Which is a challenge specific to microservices?
+a) Large monolithic codebase
+b) Distributed system complexity
+c) Lack of modularity
+d) Single deployment
+
+
+
+What is the function of API versioning in microservices?
+a) Managing backward compatibility
+b) Increasing response time
+c) Reducing fault tolerance
+d) Sharing databases
+
+
+
+
+Which pattern helps retry failed microservice calls?
+a) Retry pattern
+b) Adapter pattern
+c) Singleton pattern
+d) Visitor pattern
+
+
+
+
+In microservices, what is meant by "bounded context"?
+a) Large database
+b) Clearly defined service boundaries in domain-driven design
+c) Shared server
+d) Single code repository
+
+
+
+Circuit breakers usually transition into which state after stopping calls?
+a) Closed
+b) Open
+c) Half-open
+d) Disabled
+
+
+
+What role do containers play in microservices?
+a) Design architecture
+b) Physical deployment and isolation of services
+c) UI development
+d) Client authentication
+
+
+
+
+Which of the following is true about microservices scaling?
+a) Whole app must be scaled
+b) Only specific services can be scaled independently
+c) Scaling not supported
+d) Only database scaled
+
+
+
+
+
+Answer: b
+Explanation: Microservices allow independent deployment of components, improving 
+scalability and flexibility.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer: b
+Explanation: API Gateway acts as a single entry point that routes requests to 
+appropriate microservices.
+
+
+
+
+Answer: b
+Explanation: Saga pattern breaks distributed transactions into a sequence of 
+local transactions with compensations in case of failures.
+
+
+
+
+Answer: b
+Explanation: Message Queues decouple senders and receivers and allow 
+asynchronous communication.
+
+
+
+Answer: a
+Explanation: Service discovery enables microservices to find each other even when 
+IPs and ports change.
+
+
+
+Answer: a
+Explanation: Circuit Breaker stops calls to failing services preventing cascading 
+failures.
+
+
+
+Circuit Breaker in microservices is a design pattern used to improve the resilience 
+and fault tolerance of distributed systems by preventing repeated calls to a failing 
+service. It acts like an electrical circuit breaker, stopping calls to a service 
+that is likely failing, then allowing retries after a cooldown period to check if 
+the service is healthy again.
+
+How Circuit Breaker Works in Microservices
+When a service call fails repeatedly beyond a threshold, the circuit "trips" and 
+enters an open state, blocking further calls.
+
+After a timeout, it moves to a half-open state, allowing a few test calls to check 
+if the dependency service has recovered.
+
+If test calls succeed, it resets to the closed state, resuming normal traffic.
+
+If failures continue, it remains open longer to let the service recover.
+
+Implementation Steps
+Identify external dependencies where Circuit Breaker is needed.
+
+Choose a Circuit Breaker library or framework (such as Hystrix, Resilience4J, 
+or Spring Cloud Circuit Breaker).
+
+Integrate the Circuit Breaker into the microservices code.
+
+Set failure thresholds and timeouts to detect faults.
+
+Implement fallback mechanisms to handle failures gracefully.
+
+Monitor circuit breaker metrics and tune configurations.
+
+Test behavior under normal and faulty conditions.
+
+Deploy and monitor in production.
+
+Example Using Spring Cloud Circuit Breaker with Resilience4J (Java):
+
+@RestController
+public class MyServiceController {
+
+    @Autowired
+    private RemoteService remoteService;
+
+    @GetMapping("/data")
+    @CircuitBreaker(name = "remoteServiceCB", fallbackMethod = "fallbackMethod")
+    public String getData() {
+        return remoteService.call();
+    }
+
+    public String fallbackMethod(Throwable t) {
+        return "Fallback response: Service currently unavailable.";
+    }
+}
+
+@CircuitBreaker annotation wraps the remote call with circuit breaker logic.
+
+fallbackMethod is called when the circuit is open or the call fails.
+
+Key Benefits
+Prevents cascading failures by isolating faults.
+
+Avoids overwhelming a failing service with requests.
+
+Provides faster failure responses with fallback options.
+
+Allows recovery by introducing cooldown periods.
+
+This pattern is widely used in microservices architectures in real-world systems 
+like e-commerce, cloud services, and financial institutions to ensure stability 
+and better user experience despite service failures.
+
+If a more specific technology stack or code example is needed, it can be provided 
+as well.
+
+
+
+
+Answer: b
+Explanation: Independent databases ensure loose coupling and autonomy.
+
+
+
+
+
+Answer: b
+Explanation: Docker packages microservices and their dependencies into containers 
+enabling portability.
+
+
+
+
+Answer: b
+Explanation: Eventual consistency means different services may see updated data 
+at different times, but converge eventually.
+
+
+
+
+Answer: b
+Explanation: Spring Cloud Sleuth tracks request propagation across microservices 
+for monitoring.
+
+
+
+Answer: b
+Explanation: Centralized logging collects logs from all services to analyze 
+distributed system behavior.
+
+
+
+
+Answer: b
+Explanation: REST APIs over HTTP are commonly used for synchronous requests.
+
+
+
+Answer: a
+Explanation: Service meshes like Istio manage security, routing, and observability 
+between microservices.
+
+
+
+Answer: b
+Explanation: Managing distributed microservices creates complexity such as network 
+issues and tracing.
+
+
+
+Answer: a
+Explanation: API versioning allows evolving services without breaking existing clients.
+
+
+
+Answer: a
+Explanation: Retry pattern re-attempts failed requests to improve resilience.
+
+
+
+
+Answer: b
+Explanation: Bounded context defines service scope aligning business domain 
+with service responsibilities.
+
+
+
+Answer: b
+Explanation: Open state blocks requests to failing services; 
+half-open tests if service recovers.
+
+
+
+Answer: b
+Explanation: Containers package microservices and isolate runtime environments 
+enabling portability.
+
+
+
+Answer: b
+Explanation: Microservice architecture supports independent scaling based on 
+service demand.
+
+
+
+

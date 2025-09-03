@@ -1,0 +1,342 @@
+1. Which method in Mockito verifies that a certain method was called 
+exactly twice on a mock?
+
+A) times(1)
+B) times(2)
+C) only()
+D) verifyTwice()
+
+
+When using @Mock annotation in a JUnit test, what must you do for the annotation 
+to work?
+
+A) Extend MockitoTestCase
+B) Add @BeforeClass method
+C) Run MockitoAnnotations.openMocks(this) or use @ExtendWith(MockitoExtension.class)
+D) Nothing, @Mock works automatically
+
+
+What does when(mock.method()).thenReturn("value") do?
+A) Replaces the method implementation
+B) Stubs the method to return "value" when called
+C) Throws an exception
+D) Records the method call
+
+What does ArgumentCaptor do in Mockito?
+A) Creates a fake object
+B) Verifies invocation order
+C) Captures method argument values for later inspection
+D) Stubs return values
+
+
+How can you verify that a method is never called?
+A) verifyNever()
+B) never()
+C) verify(mock, never()).method();
+D) C only
+E) Both B and C
+
+
+What is the effect of using @InjectMocks?
+A) Replaces all method bodies
+B) Injects mock dependencies into the tested class
+C) Makes the field static
+D) Nothing
+
+
+What happens if a stubbed method is not called in Mockito?
+A) Test fails
+B) Warning is shown
+C) Nothing
+D) Test is skipped
+
+
+
+1. Which method in Mockito verifies that a certain method was called 
+exactly twice on a mock?
+
+A) times(1)
+B) times(2)
+C) only()
+D) verifyTwice()
+
+
+When using @Mock annotation in a JUnit test, what must you do for the annotation 
+to work?
+
+A) Extend MockitoTestCase
+B) Add @BeforeClass method
+C) Run MockitoAnnotations.openMocks(this) or use @ExtendWith(MockitoExtension.class)
+D) Nothing, @Mock works automatically
+
+
+What does when(mock.method()).thenReturn("value") do?
+A) Replaces the method implementation
+B) Stubs the method to return "value" when called
+C) Throws an exception
+D) Records the method call
+
+What does ArgumentCaptor do in Mockito?
+A) Creates a fake object
+B) Verifies invocation order
+C) Captures method argument values for later inspection
+D) Stubs return values
+
+
+How can you verify that a method is never called?
+A) verifyNever()
+B) never()
+C) verify(mock, never()).method();
+D) C only
+E) Both B and C
+
+
+What is the effect of using @InjectMocks?
+A) Replaces all method bodies
+B) Injects mock dependencies into the tested class
+C) Makes the field static
+D) Nothing
+
+
+What happens if a stubbed method is not called in Mockito?
+A) Test fails
+B) Warning is shown
+C) Nothing
+D) Test is skipped
+
+
+
+
+
+
+8. What does @BeforeEach in JUnit 5 do?
+A) Runs once before all tests
+B) Runs before each test method
+C) Runs after each test
+D) Runs before the test class is instantiated
+
+
+
+
+
+
+
+9. Which assertion checks that two values are not the same in JUnit?
+A) assertEquals
+B) assertNotEquals
+C) assertNotSame
+D) Both B and C
+
+
+
+
+
+
+10. Which exception does assertThrows verify?
+A) Any exception
+B) The specified exception class
+C) No exceptions
+D) Only RuntimeException
+
+
+
+
+11. What is a parameterized test in JUnit?
+A) Test with random data
+B) Test runs once per each value in a data source
+C) Test that must be repeated until passing
+D) None of the above
+
+
+12. JUnit 5 annotation to disable a test:
+A) @Disabled
+B) @Ignore
+C) @Test(disabled=true)
+D) @Skip
+
+
+13. What does @TestInstance(Lifecycle.PER_CLASS) do?
+A) Tests run in parallel
+B) A new test class instance per method
+C) A single test class instance for all methods
+D) Test instance is static
+
+
+14. How do you assert an object is null in JUnit?
+A) assertIsNull()
+B) assertNull()
+C) assert(object == null)
+D) assertEmpty()
+
+
+
+
+
+
+
+15. What does git stash do?
+A) Saves your changes locally and creates a commit
+B) Temporarily saves modified and staged changes so you can work on something else
+C) Deletes untracked files
+D) Undoes the last commit
+
+
+
+
+
+
+
+
+
+
+16. Which command creates a new branch and switches to it?
+A) git checkout newbranch
+B) git branch newbranch
+C) git checkout -b newbranch
+D) Both A and C
+
+
+17. What does git merge feature do when you are on main?
+A) Replaces main with feature
+B) Merges changes from the feature branch into main
+C) Deletes the feature branch
+D) None of the above
+
+
+18. What is the difference between git fetch and git pull?
+A) No difference
+B) git fetch gets latest changes, git pull also merges them into your branch
+C) git fetch deletes remote branches, git pull does not
+D) git pull only downloads tags
+
+
+19. Which command shows a summary of all configured remotes?
+A) git summary
+B) git log
+C) git remote -v
+D) git show remotes
+
+
+20. If you want to discard all local changes since the last commit, 
+which command do you use?
+A) git commit --amend
+B) git reset --hard HEAD
+C) git status
+D) git revert
+
+
+
+
+
+
+
+
+verify(mock, times(2)).method(); verifies the method was called exactly two times.
+
+
+You must initialize mocks with MockitoAnnotations.openMocks(this) or use the 
+Mockito JUnit extension.
+
+
+It stubs the method so any call returns the specified value.
+
+
+It’s used to capture arguments passed to mocked methods for assertions.
+
+
+
+
+
+
+
+
+
+
+
+
+Both never() and verify(mock, never()).method(); are used to check the method was 
+never invoked.
+
+
+
+It auto-injects (via constructor/setters/fields) annotated @Mocks into the class 
+under test.
+
+
+Unused stubs are ignored by default unless strict stubbing is enabled.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Methods annotated with @BeforeEach execute before every test case.
+
+
+assertNotEquals checks values, assertNotSame checks reference identity.
+
+
+assertThrows(Exception.class, ...) ensures the block throws the specified exception 
+type.
+
+
+Parameterized tests execute the same test method multiple times with different 
+parameters.
+
+
+@Disabled disables a test method or class.
+
+
+
+Test lifecycle is per class, so one instance is shared across all test methods.
+
+
+assertNull(object) asserts that the object is null.
+
+
+
+git stash saves (and removes) uncommitted changes for later reuse.
+
+
+
+
+
+
+
+
+git checkout -b branchname creates and switches to the new branch in a single step.
+
+
+
+git merge feature brings changes from feature into main, combining the histories.
+
+
+git fetch retrieves, git pull retrieves and merges into your local branch.
+
+
+
+git remote -v lists all remotes and their URLs.
+
+The command git remote -v lists all the remote repositories for your local repository 
+along with their URLs. The -v stands for "verbose" and shows the fetch and push 
+addresses for each remote.
+
+origin  https://github.com/user/repo.git (fetch)
+origin  https://github.com/user/repo.git (push)
+
+
+git reset --hard HEAD resets all files to the most recent commit, 
+discarding local changes.
+
